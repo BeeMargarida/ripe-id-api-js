@@ -1,5 +1,11 @@
 export const AccountAPI = superclass =>
     class extends superclass {
+        async listAccounts() {
+            const url = this.baseUrl + "accounts";
+            const contents = await this.get(url);
+            return contents;
+        }
+
         async selfAccount() {
             const url = this.baseUrl + "accounts/me";
             const contents = await this.get(url);
